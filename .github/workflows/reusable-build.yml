@@ -1,1 +1,20 @@
+name: Resuable Build Workflow
 
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: checkout code
+       uses: actions/checkout@v4
+     - name: Display Repository
+       run: echo "Repository = ${{ github.repository }}" 
+     - name: Build Application
+       run: echo "Building Application.." 
+     - name: Run Tests
+       run: echo "Executing Unit Tests.." 
+     - name: Build Docker Image
+       run: echo "docker build -t insurance-api:v1"
